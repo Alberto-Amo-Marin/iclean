@@ -1,12 +1,18 @@
 <td-layout #layout>
-  <td-navigation-drawer logo="assets:covalent" sidenavTitle="Quickstart" name="Firstname Lastname" email="firstname.lastname@company.com">
+  <td-navigation-drawer style="margin-top: -32px">
+    <mat-toolbar color="accent" class="toolbar-menu-sl">
+      <mat-toolbar-row>
+        <mat-icon tdLayoutToggle class="push-right">menu</mat-icon>
+        <span>MENU</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
     <mat-nav-list>
       <ng-template let-item let-last="last" ngFor [ngForOf]="routes">
-        <a mat-list-item [routerLink]="[item.route]" (click)="layout.close()"><mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+        <a mat-list-item [routerLink]="[item.route]" (click)="layout.close()" style="background-color: white" tdLayoutToggle>
+          <mat-icon tdLayoutToggle>{{item.icon}}</mat-icon>{{item.title}}</a>
       </ng-template>
-    </mat-nav-list>
-    <mat-nav-list td-navigation-drawer-menu>
-      <a mat-list-item (click)="logout()"><mat-icon>exit_to_app</mat-icon>Sign out</a>
+      <a mat-list-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>Sign out</a>
     </mat-nav-list>
   </td-navigation-drawer>
   <router-outlet></router-outlet>
